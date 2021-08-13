@@ -1,4 +1,6 @@
-# Enunciado para o Laboratório 1 - SistemaDeMatricula
+# Sistema Acadêmico
+
+**Enunciado para o Laboratório I**
 
 - Uma universidade pretende informatizar seu sistema de matrículas. A secretaria da universidade gera o currículo para cada semestre e mantém as informações sobre as disciplinas, professores e alunos.    
 
