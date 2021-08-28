@@ -1,6 +1,6 @@
 package business;
 
-public class Disciplinas {
+public class Disciplina {
 
 	private static final int Aluno = 60;
 	private boolean disciplinaAtiva; 
