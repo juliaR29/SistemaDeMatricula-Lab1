@@ -1,8 +1,8 @@
 package business;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public interface Autenticavel {
-public boolean autenticaLogin(String login);
+	
+	 public void setSenha(int senha);
+
+     public boolean login(int senha);
 }

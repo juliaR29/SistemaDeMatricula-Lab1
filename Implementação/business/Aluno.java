@@ -1,13 +1,21 @@
 package business;
 
-public class Aluno {
-	
-	private static final int DIS_OBRIGATORIAS = 4;
-	private static final int DIS_OPTATIVAS = 2;
-	private int identificador;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Aluno implements Autenticavel {
+
 	private String nome;
-	private String login;
-	private String senha;
+	private int identificador;
+	private Autenticador autenticacao;
+	private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>() ;; 
+	
+
+	public Aluno(int identificador, String nome) {
+		this.identificador = identificador;
+		this.nome = nome;
+		this.autenticacao = new Autenticador();
+	}
 	
 	public int getIdentificador() {
 		return identificador;
@@ -15,11 +23,30 @@ public class Aluno {
 	public String getNome() {
 		return nome;
 	}
-	public String getLogin() {
-		return login;
+	
+	
+	//a lista é só das disciplinas que ele está matriculado, tem que dar um jeito de relacionar com matrícula
+	public void add(Disciplina d) {
+		listaDisciplinas.add(d);
 	}
-	public String getSenha() {
-		return senha;
-	}	
+	
+	public void remove(Disciplina d) {
+		listaDisciplinas.remove(d);
+	}
+	
+	
+	@Override
+	public void setSenha(int senha) {
+		this.autenticacao.setSenha(senha);	
+	}
 
+	@Override
+	public boolean login(int senha) {
+		return this.autenticacao.login(senha);
+		
+	}
+	
+	
+
+	
 }

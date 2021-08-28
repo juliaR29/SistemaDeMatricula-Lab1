@@ -1,28 +1,38 @@
 package business;
 
-public class Professor {
+public class Professor implements Autenticavel {
 	
 	private String nome;
-	private String login;
-	private String senha;
 	private int identificadorProf;
+	private Autenticador autenticacao;
 	
+	public Professor(String nome, int identificadorProf) {
+		this.nome = nome;
+		this.identificadorProf = identificadorProf;
+		this.autenticacao = new Autenticador();
+	}
+
 	public String getNome() {
 		return nome;
 	}
-	public String getLogin() {
-		return login;
-	}
-	public String getSenha() {
-		return senha;
-	}
+
 	public int getIdentificadorProf() {
 		return identificadorProf;
 	}
 	
-
 	public void verificarAlunosMatriculados() {
 		
 	}
 
+	@Override
+	public void setSenha(int senha) {
+		this.autenticacao.setSenha(senha);	
+	}
+
+	@Override
+	public boolean login(int senha) {
+		return this.autenticacao.login(senha);
+		
+	}
+		
 }
