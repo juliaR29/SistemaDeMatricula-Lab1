@@ -26,5 +26,10 @@ package business;
 		public void remove(Disciplina d) {
 			listaDisciplinas.remove(d);
 		}
+		
+		public Curso(String nome, int numCreditos) {
+			this.nome = nome;
+			this.numCreditos = numCreditos;
+		}
 	
 }

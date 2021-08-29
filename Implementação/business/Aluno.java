@@ -3,35 +3,35 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Aluno implements Autenticavel {
+public class Aluno extends Pessoa implements Autenticavel {
 
-	private String nome;
 	private int identificador;
 	private Autenticador autenticacao;
-	private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>() ;; 
+	private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>();
 	
 
-	public Aluno(int identificador, String nome) {
+	public Aluno(String nome, String endereco, String telefone, int identificador) {
+		super(nome, endereco, telefone);
 		this.identificador = identificador;
-		this.nome = nome;
 		this.autenticacao = new Autenticador();
 	}
 	
 	public int getIdentificador() {
 		return identificador;
 	}
-	public String getNome() {
-		return nome;
-	}
 	
-	
-	//a lista é só das disciplinas que ele está matriculado, tem que dar um jeito de relacionar com matrícula
 	public void add(Disciplina d) {
 		listaDisciplinas.add(d);
 	}
 	
 	public void remove(Disciplina d) {
 		listaDisciplinas.remove(d);
+	}
+	
+	public void imprimeDadosAluno() {
+		System.out.println("  DADOS ALUNOS  ");
+		super.imprimeDados();
+		System.out.println("IDENTIFICADOR: " + this.getIdentificador());
 	}
 	
 	
@@ -45,8 +45,5 @@ public class Aluno implements Autenticavel {
 		return this.autenticacao.login(senha);
 		
 	}
-	
-	
-
 	
 }

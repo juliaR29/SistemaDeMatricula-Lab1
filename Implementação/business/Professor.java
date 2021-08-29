@@ -1,13 +1,13 @@
 package business;
 
-public class Professor implements Autenticavel {
+public class Professor extends Pessoa implements Autenticavel {
 	
 	private String nome;
 	private int identificadorProf;
 	private Autenticador autenticacao;
 	
-	public Professor(String nome, int identificadorProf) {
-		this.nome = nome;
+	public Professor(String nome, String endereco, String telefone, int identificadorProf) {
+		super(nome, endereco, telefone);
 		this.identificadorProf = identificadorProf;
 		this.autenticacao = new Autenticador();
 	}
@@ -22,6 +22,12 @@ public class Professor implements Autenticavel {
 	
 	public void verificarAlunosMatriculados() {
 		
+	}
+	
+	public void imprimeDadosProfessor() {
+		System.out.println("  DADOS PROFESSORES  ");
+		super.imprimeDados();
+		System.out.println("IDENTIFICADOR: " + this.getIdentificadorProf());
 	}
 
 	@Override
