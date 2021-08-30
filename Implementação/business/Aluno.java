@@ -20,6 +20,8 @@ public class Aluno extends Pessoa implements Autenticavel {
 		return identificador;
 	}
 	
+	
+	//a lista é só das disciplinas que ele está matriculado, tem que dar um jeito de relacionar com matrícula
 	public void add(Disciplina d) {
 		listaDisciplinas.add(d);
 	}

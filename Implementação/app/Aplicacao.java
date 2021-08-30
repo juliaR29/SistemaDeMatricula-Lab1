@@ -70,7 +70,8 @@ public class Aplicacao {
 	
 	public static Disciplina criaDisciplina(Scanner teclado) {
 		Disciplina dis = null;
-		Professor p = new Professor("nome", "endereco", "123456789", 12); 
+		Professor p = new Professor("hui", "njeinv", "123456789", 12); // não consegui colocar o professor sem ter que
+																		// criar ele aqui, talvez podemos tirar ele do contrutor
 		System.out.println("__________________________________");
 		System.out.println("DISCIPLINA");
 		System.out.println("1 - Cadastro da disciplina");
@@ -87,7 +88,7 @@ public class Aplicacao {
 
 			switch (opc) {
 			case 1:
-				dis = new Disciplina(nome, disciplinaAtiva, codDisciplina, p); 
+				dis = new Disciplina(nome, disciplinaAtiva, codDisciplina, p); // não imprime os dados corretamente
 				break;
 			}
 		} catch (NumberFormatException ex) {
@@ -101,7 +102,7 @@ public class Aplicacao {
 		System.out.println("__________________________________");
 		System.out.println("CURSO");
 		System.out.println("1 - Cadastro do curso");
-		//System.out.println("2 - Informações do curso");
+//		System.out.println("2 - Informações do curso"); / podemos colocar depois as informações do curso
 		System.out.print("Opção: ");
 
 		try {

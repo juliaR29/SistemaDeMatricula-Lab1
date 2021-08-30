@@ -12,7 +12,7 @@ public class SecretariaUniversidade implements Autenticavel {
 	private List<Aluno> listaAlunos = new ArrayList<Aluno>();
 	private List<Professor> listaProfessores = new ArrayList<Professor>();
 
-	public void addPessoa(Pessoa novo) { 
+	public void addPessoa(Pessoa novo) { // como já tem o add e remove pesso nao sei se precisaria dos add e remove de Aluno e Professor
 		this.pessoas.add(novo);
 	}
 	
