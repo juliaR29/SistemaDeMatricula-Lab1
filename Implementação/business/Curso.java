@@ -6,14 +6,19 @@ package business;
 	public class Curso {
 		
 		private String nome;
-		private int numCreditos;
-		private List<Disciplina> listaDisciplinas = new ArrayList<Disciplina>() ;
+		private int codigoCurso;
+		private List<Disciplina> listaDisciplinas;
 		
+		public Curso(String nome, int numCreditos) {
+			this.nome = nome;
+			this.codigoCurso = numCreditos;
+			this.listaDisciplinas = new ArrayList<Disciplina>() ;
+		}
 		public String getNome() {
 			return nome;
 		}
-		public int getNumCreditos() {
-			return numCreditos;
+		public int getCodigoCurso() {
+			return codigoCurso;
 		}
 		public List<Disciplina> getListaDisciplinas() {
 			return listaDisciplinas;
@@ -27,9 +32,15 @@ package business;
 			listaDisciplinas.remove(d);
 		}
 		
-		public Curso(String nome, int numCreditos) {
-			this.nome = nome;
-			this.numCreditos = numCreditos;
+		public void printDisciplinasCurso() {
+			for (Disciplina disciplina : listaDisciplinas) {
+				System.out.println("----Curso de " + this.getNome() + "-----" + "\n" + "Disciplinas do Curso: \n" + disciplina.toString());
+			}
+		}
+		
+		@Override
+		public String toString() {
+			return "[ Nome Curso: " + this.getNome() + " Código do Curso: " + this.getCodigoCurso() + " ]";
 		}
 	
 }

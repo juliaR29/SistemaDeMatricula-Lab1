@@ -40,5 +40,7 @@ public class Professor extends Pessoa implements Autenticavel {
 		return this.autenticacao.login(senha);
 		
 	}
+	
+	
 		
 }

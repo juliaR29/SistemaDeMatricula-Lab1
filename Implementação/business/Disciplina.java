@@ -30,5 +30,11 @@ public class Disciplina {
 		return professor;
 	}
 	
+	@Override
+	public String toString() {
+		return "[ Nome Disciplina: " + this.getNomeDisc() + "CodDisciplina: " + this.getCodDisciplina()
+		+ "Professor: " + this.getProfessor() + " ]";
+	}
+	
 
 }
