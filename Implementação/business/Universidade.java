@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class SecretariaUniversidade implements Autenticavel {
+public class Universidade implements Autenticavel {
 
 	private Autenticador autenticacao;
 	private List<Curso> listaCursos = new ArrayList<Curso>();
@@ -49,7 +49,7 @@ public class SecretariaUniversidade implements Autenticavel {
 		listaCursos.remove(c);
 	}
 
-	public SecretariaUniversidade() {
+	public Universidade() {
 		this.autenticacao = new Autenticador();
 	}
 	

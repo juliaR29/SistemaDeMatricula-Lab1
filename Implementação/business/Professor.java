@@ -20,8 +20,8 @@ public class Professor extends Pessoa implements Autenticavel {
 		return identificadorProf;
 	}
 	
-	public void verificarAlunosMatriculados() {
-		
+	public String verificarAlunosMatriculados(Oferta o) {
+		return "";
 	}
 	
 	public void imprimeDadosProfessor() {

@@ -5,13 +5,20 @@ public class Disciplina {
 	private String nomeDisc;
 	private boolean disciplinaAtiva; 
 	private int codDisciplina;
-	private Professor professor;
+	private double valorDisciplina;
+	private boolean ehOptativa; 
 	
-	public Disciplina(String nomeDisc, boolean disciplinaAtiva, int codDisciplina, Professor professor) {
+	public boolean getEhOptativa() {
+		return ehOptativa;
+	}
+
+
+	public Disciplina(String nomeDisc, boolean disciplinaAtiva, int codDisciplina, boolean ehOptativa) {
 		this.nomeDisc = nomeDisc;
 		this.disciplinaAtiva = disciplinaAtiva;
 		this.codDisciplina = codDisciplina;
-		this.professor = professor;
+		this.ehOptativa = ehOptativa;
+
 	}
 	
 	public String getNomeDisc() {
@@ -26,14 +33,11 @@ public class Disciplina {
 		return codDisciplina;
 	}
 
-	public Professor getProfessor() {
-		return professor;
-	}
+
 	
 	@Override
 	public String toString() {
-		return "[ Nome Disciplina: " + this.getNomeDisc() + "CodDisciplina: " + this.getCodDisciplina()
-		+ "Professor: " + this.getProfessor() + " ]";
+		return "[ Nome Disciplina: " + this.getNomeDisc() + "CodDisciplina: " + this.getCodDisciplina() + " ]";
 	}
 	
 
