@@ -30,7 +30,7 @@ public class Aluno extends Pessoa implements Autenticavel {
 	public void imprimeDadosAluno() {
 		System.out.println("  DADOS ALUNOS  ");
 		super.imprimeDados();
-		System.out.println("IDENTIFICADOR: " + this.getIdentificador());
+		System.out.println("Identificador: " + this.getIdentificador());
 	}
 
 	public boolean matricularObrigatoria(Oferta o) {

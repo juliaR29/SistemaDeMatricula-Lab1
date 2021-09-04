@@ -5,7 +5,6 @@ public class Disciplina {
 	private String nomeDisc;
 	private boolean disciplinaAtiva; 
 	private int codDisciplina;
-	private double valorDisciplina;
 	private boolean ehOptativa; 
 	
 	public boolean getEhOptativa() {

@@ -1,7 +1,6 @@
 package business;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Universidade implements Autenticavel {
