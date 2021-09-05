@@ -28,7 +28,8 @@ public class Aluno extends Pessoa implements Autenticavel {
 	}
 
 	public void imprimeDadosAluno() {
-		System.out.println("  DADOS ALUNOS  ");
+		System.out.println("\n");
+		System.out.println("  DADOS DO ALUNO  ");
 		super.imprimeDados();
 		System.out.println("Identificador: " + this.getIdentificador());
 	}

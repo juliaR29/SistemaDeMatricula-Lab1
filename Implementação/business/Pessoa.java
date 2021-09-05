@@ -2,14 +2,35 @@ package business;
 
 public abstract class Pessoa {
 
+	private String usuario;
+	private String senha;
 	private String nome;
 	private String endereco;
 	private String telefone;
+	
 
 	public Pessoa(String nome, String endereco, String telefone) {
+		this.setUsuario(usuario);
+		this.setSenha(senha);
 		this.setNome(nome);
 		this.setEndereco(endereco);
 		this.setTelefone(telefone);
+	}
+
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 	public String getNome() {

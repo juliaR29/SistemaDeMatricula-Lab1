@@ -9,6 +9,7 @@ public class Universidade implements Autenticavel {
 	private List<Curso> listaCursos = new ArrayList<Curso>();
 	private List<Aluno> listaAlunos = new ArrayList<Aluno>();
 	private List<Professor> listaProfessores = new ArrayList<Professor>();
+	private List<Pessoa> listaUsuarios = new ArrayList<Pessoa>();
 
 	public List<Curso> getListaCursos() {
 		return listaCursos;
@@ -21,6 +22,15 @@ public class Universidade implements Autenticavel {
 	public List<Professor> getListaProfessores() {
 		return listaProfessores;
 	}
+	
+	public List<Pessoa> getListaUsuarios() {
+		return listaUsuarios;
+	}
+
+	public void setListaUsuarios(List<Pessoa> listaUsuarios) {
+		this.listaUsuarios = listaUsuarios;
+	}
+
 	
 	public void add(Pessoa p) {
 		if (p instanceof Aluno) {

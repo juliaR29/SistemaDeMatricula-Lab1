@@ -30,6 +30,14 @@ public class Oferta {
 		return professor;
 	}
 
+	public List<Aluno> getListaAlunos() {
+		return listaAlunos;
+	}
+
+	public void setListaAlunos(List<Aluno> listaAlunos) {
+		this.listaAlunos = listaAlunos;
+	}
+
 	boolean _addAluno(Aluno aluno) {
 		if (listaAlunos.size() < MAX_ALUNOS) {
 			listaAlunos.add(aluno);
