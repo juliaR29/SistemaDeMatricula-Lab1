@@ -76,7 +76,9 @@ import business.Disciplina;
 import business.Pessoa;
 import business.Professor;
 import business.Universidade;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.security.InvalidParameterException;
 import java.util.Scanner;
 
@@ -98,6 +100,9 @@ public class Aplicacao {
 		System.out.println("5 - Exibir Alunos cadastrados");
 		System.out.println("6 - Exibir Cursos cadastrados");
 		System.out.println("7 - Exibir Disciplinas por curso");
+		System.out.println("8 - Remover alunos ");
+		System.out.println("9 - Remover professores ");
+		System.out.println("10 - Remover cursos");
 		System.out.println("0 - Sair");
 
 		int opcao = teclado.nextInt();
@@ -132,10 +137,10 @@ public class Aplicacao {
 
 			switch (opc) {
 			case 1:
-				novo = new Aluno(nome + "\n", endereco, telefone, identificador);
+				novo = new Aluno(nome+"\n", endereco, telefone, identificador);
 				break;
 			case 2:
-				novo = new Professor(nome + "\n", endereco, telefone, identificador);
+				novo = new Professor(nome+"\n", endereco, telefone, identificador);
 				break;
 			}
 		} catch (NumberFormatException ex) {
@@ -173,7 +178,7 @@ public class Aplicacao {
 		System.out.println("CURSO");
 
 		try {
-			System.out.print("Nome: \n");
+			System.out.print("Nome: ");
 			String nome = teclado.nextLine();
 			System.out.println("Código:");
 			int codigoCurso = teclado.nextInt();
@@ -201,7 +206,102 @@ public class Aplicacao {
 		return codigoCurso;
 	}
 
-	public static void main(String args[]) {
+	public static void removeAluno(Scanner teclado, Universidade u ) {
+		System.out.println("\nEscolha o aluno a ser removido: ");
+		
+		int cont = 1;
+		for (Aluno a : u.getListaAlunos()) {
+			System.out.println(cont + " -> " + a.getNome());
+			cont++;
+		}
+		
+		int op = teclado.nextInt();
+		cont = 1;
+		
+		for (Aluno a : u.getListaAlunos()) {
+			if (cont == op) {
+				u.remove(a);
+			}
+			cont++;
+		}
+		teclado.nextLine();
+	}
+	
+	public static void removeProfessor(Scanner teclado, Universidade u ) {
+		System.out.println("\nEscolha o professor a ser removido: ");
+		
+		int cont = 1;
+		for (Professor p : u.getListaProfessores()) {
+			System.out.println(cont + " -> " + p.getNome());
+			cont++;
+		}
+		
+		int op = teclado.nextInt();
+		cont = 1;
+		
+		for (Professor p : u.getListaProfessores()) {
+			if (cont == op) {
+				u.remove(p);
+			}
+			cont++;
+		}
+		teclado.nextLine();
+	}
+
+	public static void removeCurso(Scanner teclado, Universidade u ) {
+		System.out.println("\nEscolha o curso a ser removido: ");
+		
+		int cont = 1;
+		for (Curso c : u.getListaCursos()) {
+			System.out.println(cont + " -> " + c.getNome());
+			cont++;
+		}
+		
+		int op = teclado.nextInt();
+		cont = 1;
+		
+		for (Curso c : u.getListaCursos()) {
+			if (cont == op) {
+				u.remove(c);
+			}
+			cont++;
+		}
+		teclado.nextLine();
+	}
+	
+
+	public static void adicionarDoArquivo(Scanner teclado, Universidade sistema, String nomeArq) throws IOException {
+		File arq = new File(nomeArq);
+		Pessoa pessoa = null;
+		try {
+			arq.createNewFile();
+			Scanner leitor = new Scanner(arq);
+			while (leitor.hasNextLine()) {
+				String[] dados = leitor.nextLine().split(";");
+				String nome = dados[1];
+				String end = dados[2];
+				String tel = dados[3];
+				int id = Integer.parseInt(dados[4]);
+				int opc = Integer.parseInt(dados[0]);
+				switch (opc) {
+				case 1:
+					pessoa = new Aluno(nome, end, tel, id);
+					break;
+				case 2:
+					pessoa = new Professor(nome, end, tel, id);
+					break;
+				}
+				if (pessoa != null)
+					sistema.add(pessoa);
+			}
+			leitor.close();
+		} catch (FileNotFoundException e) {
+			System.out.println("Arquivo " + nomeArq + " não foi encontrado. Dados não foram lidos");
+			pausa(teclado);
+		}
+	}
+
+	public static void main(String args[]) throws Exception {
 		Scanner teclado = new Scanner(System.in);
 		Universidade secretaria = new Universidade();
 		Pessoa p1;
@@ -262,8 +362,20 @@ public class Aplicacao {
 				codCurso = lerCodCurso(teclado);
 				secretaria.printDisciplinasPorCurso(codCurso);
 				break;
+			case 8:
+				removeAluno(teclado, secretaria);
+				break;
+			case 9:
+				removeProfessor(teclado, secretaria);
+				break;
+			case 10:
+				removeCurso(teclado, secretaria);
+				break;
+			case 11:
+				adicionarDoArquivo(teclado, secretaria, "DADOS.txt");
+                break;
 			}
-		} while (opcao != 9);
+		} while (opcao != 13);
 
 		System.out.println("FIM");
 		teclado.close();
