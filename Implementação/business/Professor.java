@@ -7,7 +7,6 @@ public class Professor extends Pessoa implements Autenticavel {
 	
 	private String nome;
 	private int identificadorProf;
-	private Autenticador autenticacao;
 	private List<Oferta> ofertas = new ArrayList<Oferta>();
 
 	
