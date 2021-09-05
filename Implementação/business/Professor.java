@@ -46,17 +46,6 @@ public class Professor extends Pessoa implements Autenticavel {
 		super.imprimeDados();
 		System.out.println("IDENTIFICADOR: " + this.getIdentificadorProf());
 	}
-
-	@Override
-	public void setSenha(int senha) {
-		this.autenticacao.setSenha(senha);	
-	}
-
-	@Override
-	public boolean login(int senha) {
-		return this.autenticacao.login(senha);
-		
-	}
 	
 	
 		
