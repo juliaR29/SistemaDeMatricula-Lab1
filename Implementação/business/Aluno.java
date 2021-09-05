@@ -7,7 +7,6 @@ public class Aluno extends Pessoa implements Autenticavel {
 
 	private int identificador;
 	private Curso curso;
-	private Autenticador autenticacao;
 	private List<Oferta> obrigatoria = new ArrayList<Oferta>();
 	private List<Oferta> naoObrigatoria = new ArrayList<Oferta>();
 	public static final int MAX_DISC_OB = 4;
@@ -39,11 +38,11 @@ public class Aluno extends Pessoa implements Autenticavel {
 		
 		if (o.getDisciplina().getEhOptativa()) {
 			resultado = false;
-			System.out.println("Você não pode matricular em uma disciplina optativa como se fosse obrigatória!");
+			System.out.println("VocÃª nÃ£o pode matricular em uma disciplina optativa como se fosse obrigatÃ³ria!");
 			
 		} else if (obrigatoria.size() >= 4) {
 			resultado = false;
-			System.out.println("Você só pode se matricular em 4 disciplinas obrigatórias!");
+			System.out.println("VocÃª sÃ³ pode se matricular em 4 disciplinas obrigatÃ³rias!");
 		} else {
 			resultado = o._addAluno(this);
 		}
@@ -59,11 +58,11 @@ public class Aluno extends Pessoa implements Autenticavel {
 
 		if (!o.getDisciplina().getEhOptativa()) {
 			resultado = false;
-			System.out.println("Você não pode matricular em uma disciplina obrigatória como se fosse optativa!");
+			System.out.println("VocÃª nÃ£o pode matricular em uma disciplina obrigatÃ³ria como se fosse optativa!");
 
 		} else if (naoObrigatoria.size() >= 2) {
 			resultado = false;
-			System.out.println("Você só pode se matricular em 2 disciplinas optativas!");
+			System.out.println("VocÃª sÃ³ pode se matricular em 2 disciplinas optativas!");
 		} else {
 			resultado = o._addAluno(this);
 		}
@@ -91,16 +90,4 @@ public class Aluno extends Pessoa implements Autenticavel {
 		return resultado;
 
 	}
-
-	@Override
-	public void setSenha(int senha) {
-		this.autenticacao.setSenha(senha);
-	}
-
-	@Override
-	public boolean login(int senha) {
-		return this.autenticacao.login(senha);
-
-	}
-
 }
