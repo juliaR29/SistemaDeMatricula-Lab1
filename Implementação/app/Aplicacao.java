@@ -1,4 +1,3 @@
-
 //package app;
 //
 //import business.Aluno;
@@ -65,10 +64,9 @@
 //	
 //	}
 //}
-
-// USEI PARA TESTAR SEM O MENU
-
 package app;
+//testar a matrícula pelo menu acima
+
 
 import business.Aluno;
 import business.Curso;
@@ -307,7 +305,8 @@ public class Aplicacao {
 		Pessoa p1;
 		Disciplina d1 = null;
 		Curso c;
-
+		Professor prof = new Professor("Afonso", "Rua 12", "123412121", 11);
+		
 		int opcao = 0;
 		int codCurso;
 		do {
