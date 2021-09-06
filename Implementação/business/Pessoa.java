@@ -2,6 +2,8 @@ package business;
 
 public abstract class Pessoa {
 
+	private String usuario;
+	private String senha;
 	private String nome;
 	private String endereco;
 	private String telefone;
@@ -15,6 +17,21 @@ public abstract class Pessoa {
 		this.setTelefone(telefone);
 	}
 
+	public String getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 
 	public String getNome() {
 		return nome;
@@ -45,13 +62,13 @@ public abstract class Pessoa {
 
 
 	public void imprimeDados() {
-		System.out.println("Nome: " + this.getNome() + "\n" + "EndereÃ§o: " + this.getEndereco() + "\n" + "Telefone: "
+		System.out.println("Nome: " + this.getNome() + "\n" + "Endereço: " + this.getEndereco() + "\n" + "Telefone: "
 				+ this.getTelefone());
 	}
 	
 	@Override
 	public String toString() {
-		return "Nome: " + this.nome.toString()+ "EndereÃ§o: " + this.getEndereco() + "\n" + "Telefone: "
+		return "Nome: " + this.nome.toString()+ "Endereço: " + this.getEndereco() + "\n" + "Telefone: "
 				+ this.getTelefone();
 		}
 }

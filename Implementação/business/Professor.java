@@ -3,7 +3,7 @@ package business;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Professor extends Pessoa implements Autenticavel {
+public class Professor extends Pessoa {
 	
 	private String nome;
 	private int identificadorProf;
@@ -13,7 +13,6 @@ public class Professor extends Pessoa implements Autenticavel {
 	public Professor(String nome, String endereco, String telefone, int identificadorProf) {
 		super(nome, endereco, telefone);
 		this.identificadorProf = identificadorProf;
-		this.autenticacao = new Autenticador();
 	}
 
 	public String getNome() {
@@ -46,7 +45,6 @@ public class Professor extends Pessoa implements Autenticavel {
 		super.imprimeDados();
 		System.out.println("IDENTIFICADOR: " + this.getIdentificadorProf());
 	}
-	
 	
 		
 }
